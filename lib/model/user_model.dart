@@ -1,11 +1,11 @@
-class UserModel {
-  String uid;
+// class UserModel {
+//   String uid;
 
-  UserModel.fromMap(Map map) {
-    this.uid = map[];
-  }
-}
+//   UserModel.fromMap(Map map) {
+//     this.uid = map[];
+//   }
+// }
 
-class UserField{
-  static String uid = "uid";
-}
+// class UserField{
+//   static String uid = "uid";
+// }

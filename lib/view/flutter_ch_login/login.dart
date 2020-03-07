@@ -1,4 +1,5 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter_channel/view/flutter_ch_home/home.dart';
 import 'package:flutter_channel/view/importer.dart';
 
 // ログイン画面
@@ -91,7 +92,12 @@ class Login extends StatelessWidget {
                           var result = _auth.newSignIn(
                               emailCntrlr.text, passCntrlr.text);
                           result.then((value) {
-                            Navigator.of(context).pushReplacement(null);
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        FlutterChHome()));
+                            // エラーの場合
                           }).catchError((error) {
                             Scaffold.of(context).showSnackBar(
                                 SnackBar(content: Text("認証に失敗しました")));

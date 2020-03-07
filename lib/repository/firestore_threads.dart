@@ -4,8 +4,13 @@ import 'package:flutter_channel/configs/firestore_conf.dart';
 class ThreadsRepository {
   final _parentTh = Firestore.instance.collection(FireStoreConf.parentTh);
 
-  final _childTh = Firestore.instance
-      .collection(FireStoreConf.parentTh)
-      .document()
-      .collection(FireStoreConf.childTh);
+  Future<List<DocumentSnapshot>> select() async {
+    try {
+      QuerySnapshot qs = await _parentTh.getDocuments();
+      return qs.documents;
+    } catch (e) {
+      print(e);
+      return List<DocumentSnapshot>();
+    }
+  }
 }

@@ -1,7 +1,8 @@
+import 'package:flutter_channel/service/auth_service.dart';
+import 'package:flutter_channel/view/flutter_ch_home/home.dart';
 import 'package:flutter_channel/view/importer.dart';
 
 class FlutterChApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -9,7 +10,13 @@ class FlutterChApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: isAuthenticated() ? FlutterChHome() : Login(),
     );
+  }
+
+  bool isAuthenticated() {
+    var svc = AuthService();
+    bool isAuth = svc.chceckAuthenticated();
+    return isAuth;
   }
 }
