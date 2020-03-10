@@ -1,8 +1,11 @@
 class FireStoreConf {
-  /** コレクション名 */
-
+  /* コレクション名 */
   // 親カテゴリ
   static const parentTh = "threads";
   // 子カテゴリ
-  static const childTh = "childThreads";
+  static const CHILDTH = "childThreads";
+
+  /* ドキュメント */
+  static const TALKING = "TALKING";
+  static const HOBBY = "HOBBY";
 }

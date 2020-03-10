@@ -1,3 +1,4 @@
+import 'package:flutter_channel/common/login_user_info.dart';
 import 'package:flutter_channel/view/importer.dart';
 
 class AuthService {
@@ -5,18 +6,11 @@ class AuthService {
   final _auth = FlutterChAuth();
 
   // 認証済みチェック
-  bool chceckAuthenticated() {
+  Future<String> chceckAuthenticated() async {
     // チェック
-    Future<String> isAuth = _auth.checkAuthenticated();
+    String uid = await _auth.checkAuthenticated();
     // 認証済みかどうか
-    bool isAuthenticated = true;
-    //
-    if (isAuth == null) {
-      isAuthenticated = false;
-    } else {
-      isAuthenticated = true;
-    }
-    return isAuthenticated;
+    return uid;
   }
 
   //

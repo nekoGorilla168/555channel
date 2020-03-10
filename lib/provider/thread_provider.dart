@@ -7,6 +7,10 @@ class ThreadProvider with ChangeNotifier {
   /* サービスクラス */
   final _svc = ThreadService();
 
+  ThreadProvider() {
+    addList();
+  }
+
   List<ThreadModel> _thModelList;
   List<ThreadModel> get getThreadList => _thModelList;
 

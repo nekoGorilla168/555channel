@@ -1,15 +1,12 @@
 import 'package:flutter_channel/view/importer.dart';
 
 class FlutterChAuth {
+  /* リポジトリ */
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // 認証されているかどうか
   Future<String> checkAuthenticated() async {
     FirebaseUser user = await _auth.currentUser();
-    print(user.providerData);
-
-    print(user);
-
     return user?.uid;
   }
 
@@ -17,7 +14,7 @@ class FlutterChAuth {
   Future<AuthResult> newSignIn(String email, String passWord) async {
     final AuthResult rs = await _auth.createUserWithEmailAndPassword(
         email: email, password: passWord);
-    _checkAuthResult(rs);
+
     return rs;
   }
 
@@ -28,9 +25,11 @@ class FlutterChAuth {
     return rs;
   }
 
-  //
-
-  void _checkAuthResult(AuthResult rs) {
-    print(rs.user);
+  // サインアウト
+  void signOut() {
+    _auth.signOut();
   }
+  // void sendEmail(String email) {
+  //   _auth.sendSignInWithEmailLink(email: email, url: null, handleCodeInApp: null, iOSBundleID: null, androidPackageName: null, androidInstallIfNotAvailable: null, androidMinimumVersion: null)
+  // }
 }

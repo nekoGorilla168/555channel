@@ -1,6 +1,6 @@
 import 'package:flutter_channel/view/importer.dart';
 
-// 投稿モデル
+// 板モデル
 class ThreadModel {
   String parentCategory;
   Map childrenCategory;
